@@ -13,7 +13,7 @@ from typing import Any
 import numpy as np
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-HF_CACHE_DIR = PROJECT_ROOT / ".hf_cache"
+HF_CACHE_DIR = Path("/tmp/pdfpilot/.hf_cache") if os.getenv("VERCEL") else PROJECT_ROOT / ".hf_cache"
 HF_CACHE_DIR.mkdir(exist_ok=True)
 os.environ.setdefault("HF_HOME", str(HF_CACHE_DIR))
 

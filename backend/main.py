@@ -6,17 +6,12 @@ import asyncio
 import logging
 import sys
 import time
-from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-BACKEND_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BACKEND_DIR.parent
-LOG_DIR = PROJECT_ROOT / "logs"
-UPLOAD_DIR = PROJECT_ROOT / "uploads"
-OUTPUT_DIR = PROJECT_ROOT / "outputs"
+from backend.file_utils import LOG_DIR, OUTPUT_DIR, PROJECT_ROOT, UPLOAD_DIR
 
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))

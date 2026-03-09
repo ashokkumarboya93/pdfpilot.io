@@ -11,9 +11,10 @@ from pathlib import Path
 from fastapi import HTTPException, UploadFile
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-UPLOAD_DIR = PROJECT_ROOT / "uploads"
-OUTPUT_DIR = PROJECT_ROOT / "outputs"
-LOG_DIR = PROJECT_ROOT / "logs"
+RUNTIME_ROOT = Path("/tmp/pdfpilot") if os.getenv("VERCEL") else PROJECT_ROOT
+UPLOAD_DIR = RUNTIME_ROOT / "uploads"
+OUTPUT_DIR = RUNTIME_ROOT / "outputs"
+LOG_DIR = RUNTIME_ROOT / "logs"
 
 UPLOAD_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)

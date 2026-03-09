@@ -10,14 +10,16 @@ import os
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from backend.command_parser import LocalCommandParser
 from backend.intent_schema import IntentPlan, IntentStep
-from backend.intent_router import IntentRouter
 from backend.tool_registry import list_tool_names, resolve_tool_name
 
 logger = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from backend.intent_router import IntentRouter
 
 
 class AICommandRouter:
@@ -30,7 +32,7 @@ class AICommandRouter:
         self.model = os.getenv("PDFPILOT_AI_ROUTER_MODEL", "")
         self.endpoint = os.getenv("PDFPILOT_AI_ROUTER_URL", "").strip()
         self.api_key = os.getenv("PDFPILOT_AI_ROUTER_API_KEY", "").strip()
-        self.semantic_router = self._build_semantic_router()
+        self.semantic_router: IntentRouter | None = self._build_semantic_router()
         self.local_parser = LocalCommandParser()
 
     def detect_intent(self, command: str, files: list[Path], raw_text: str = "") -> IntentPlan:
@@ -130,6 +132,8 @@ class AICommandRouter:
     @staticmethod
     def _build_semantic_router() -> IntentRouter | None:
         try:
+            from backend.intent_router import IntentRouter
+
             return IntentRouter()
         except Exception as exc:
             logger.warning("Semantic router is unavailable. Falling back to local parser: %s", exc)
