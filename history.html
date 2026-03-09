@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFPilot — History</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <div class="sidebar-header-row">
+            <a href="index.html" class="sidebar-logo">
+              <img src="assets/22.png" alt="PDFPilot">
+              <span>PDFPilot</span>
+            </a>
+            <button class="btn-icon" id="sidebarToggle" title="Close sidebar">
+              <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+            </button>
+          </div>
+          <button class="sidebar-new-chat" onclick="window.location.href='app.html'">
+            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+            New Chat
+          </button>
+        </div>
+
+        <div class="sidebar-menu" style="border-top:none;">
+          <a href="app.html" class="sidebar-link">
+            <i data-lucide="message-square"></i>
+            <span>Chats</span>
+          </a>
+          <a href="tools.html" class="sidebar-link">
+            <i data-lucide="wrench"></i>
+            <span>Tools</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="folder"></i>
+            <span>Files</span>
+          </a>
+          <a href="history.html" class="sidebar-link active">
+            <i data-lucide="clock"></i>
+            <span>History</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">GU</div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Guest User</div>
+              <div class="sidebar-user-email">No login required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="history-page">
+      <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-sm);">
+        <button class="btn-icon" id="mobileToggle" title="Toggle sidebar">
+          <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <div class="history-header">
+        <h1>File History</h1>
+        <div class="history-filters">
+          <input class="form-input" type="search" placeholder="Search files..." id="historySearch" style="max-width:240px;padding:8px 14px;font-size:0.85rem;">
+          <select class="filter-select" id="historyFilter">
+            <option value="all">All Operations</option>
+            <option value="convert">Convert</option>
+            <option value="merge">Merge</option>
+            <option value="split">Split</option>
+            <option value="compress">Compress</option>
+            <option value="extract">Extract</option>
+          </select>
+        </div>
+      </div>
+
+      <table class="data-table" id="historyTable">
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Operation</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="file-name-cell">
+                <i data-lucide="file-text"></i>
+                <span>report.pdf</span>
+              </div>
+            </td>
+            <td>Convert (DOCX → PDF)</td>
+            <td>Mar 7, 2026</td>
+            <td><span class="badge badge-success">Completed</span></td>
+            <td><button class="btn btn-ghost btn-sm"><i data-lucide="download" style="width:14px;height:14px;"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="file-name-cell">
+                <i data-lucide="file-text"></i>
+                <span>merged_q4.pdf</span>
+              </div>
+            </td>
+            <td>Merge (3 files)</td>
+            <td>Mar 6, 2026</td>
+            <td><span class="badge badge-success">Completed</span></td>
+            <td><button class="btn btn-ghost btn-sm"><i data-lucide="download" style="width:14px;height:14px;"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="file-name-cell">
+                <i data-lucide="file-text"></i>
+                <span>contract_text.txt</span>
+              </div>
+            </td>
+            <td>Extract Text</td>
+            <td>Mar 5, 2026</td>
+            <td><span class="badge badge-success">Completed</span></td>
+            <td><button class="btn btn-ghost btn-sm"><i data-lucide="download" style="width:14px;height:14px;"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="file-name-cell">
+                <i data-lucide="file-text"></i>
+                <span>presentation.pdf</span>
+              </div>
+            </td>
+            <td>Compress</td>
+            <td>Mar 4, 2026</td>
+            <td><span class="badge badge-info">Processing</span></td>
+            <td><button class="btn btn-ghost btn-sm" disabled>Pending</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="file-name-cell">
+                <i data-lucide="file-text"></i>
+                <span>invoice_p1.pdf</span>
+              </div>
+            </td>
+            <td>Split (Pages 1-3)</td>
+            <td>Mar 3, 2026</td>
+            <td><span class="badge badge-success">Completed</span></td>
+            <td><button class="btn btn-ghost btn-sm"><i data-lucide="download" style="width:14px;height:14px;"></i> Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

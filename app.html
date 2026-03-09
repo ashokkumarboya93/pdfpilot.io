@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFPilot — Chat</title>
+  <meta name="description" content="Chat with PDFPilot to convert, merge, compress and process your documents using AI.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <div class="sidebar-header-row">
+            <a href="index.html" class="sidebar-logo">
+              <img src="assets/22.png" alt="PDFPilot">
+              <span>PDFPilot</span>
+            </a>
+            <button class="btn-icon" id="sidebarToggle" title="Close sidebar">
+              <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+            </button>
+          </div>
+          <button class="sidebar-new-chat" id="newChatBtn">
+            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+            New Chat
+          </button>
+        </div>
+
+        <!-- Chat History -->
+        <div class="sidebar-chats" id="chatHistory">
+          <div class="sidebar-section-title">Today</div>
+          <div class="sidebar-chat-item active">
+            <i data-lucide="message-square"></i>
+            <span>Convert report to PDF</span>
+          </div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Merge quarterly reports</span>
+          </div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Extract text from scan</span>
+          </div>
+          <div class="sidebar-section-title">Yesterday</div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Compress presentation file</span>
+          </div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Summarize contract document</span>
+          </div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Translate proposal to Spanish</span>
+          </div>
+          <div class="sidebar-section-title">Previous 7 Days</div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Split invoice pages</span>
+          </div>
+          <div class="sidebar-chat-item">
+            <i data-lucide="message-square"></i>
+            <span>Image to PDF conversion</span>
+          </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="sidebar-menu">
+          <a href="app.html" class="sidebar-link active">
+            <i data-lucide="message-square"></i>
+            <span>Chats</span>
+          </a>
+          <a href="tools.html" class="sidebar-link">
+            <i data-lucide="wrench"></i>
+            <span>Tools</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="folder"></i>
+            <span>Files</span>
+          </a>
+          <a href="history.html" class="sidebar-link">
+            <i data-lucide="clock"></i>
+            <span>History</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <!-- User -->
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">GU</div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Guest User</div>
+              <div class="sidebar-user-email">No login required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== CENTER CHAT ===== -->
+    <main class="dashboard-main" id="dashboardMain">
+      <div class="chat-area">
+
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <button class="btn-icon" id="mobileToggle" title="Toggle sidebar">
+              <i data-lucide="chevrons-right" style="width:18px;height:18px;"></i>
+            </button>
+            <h5 class="chat-header-title">PDFPilot</h5>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="upgrade-btn" id="upgradeBtn" title="Free access enabled for everyone">
+              <i data-lucide="check-circle" style="width:14px;height:14px;"></i>
+              Free Access
+            </span>
+            <button class="btn-icon" title="Toggle preview" id="togglePreviewBtn">
+              <i data-lucide="panel-right" style="width:18px;height:18px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Messages (ChatGPT style) -->
+        <div class="chat-messages" id="chatMessages">
+
+          <!-- Welcome Screen -->
+          <div class="chat-welcome" id="chatWelcome" style="display:flex;">
+            <img src="assets/22.png" class="chat-welcome-logo" alt="PDFPilot">
+            <h2>Welcome to <span class="text-gradient">PDFPilot</span></h2>
+            <p>Upload a file and tell me what to do. I can convert, merge, split, compress, extract text, and more.</p>
+            <div class="chat-suggestions" id="chatSuggestions">
+              <button class="chat-suggestion" data-msg="Convert my document to PDF">
+                <i data-lucide="repeat" style="width:14px;height:14px;"></i>
+                Convert to PDF
+              </button>
+              <button class="chat-suggestion" data-msg="Merge these PDFs together">
+                <i data-lucide="layers" style="width:14px;height:14px;"></i>
+                Merge PDFs
+              </button>
+              <button class="chat-suggestion" data-msg="Compress this file">
+                <i data-lucide="minimize-2" style="width:14px;height:14px;"></i>
+                Compress
+              </button>
+              <button class="chat-suggestion" data-msg="Extract text from this document">
+                <i data-lucide="file-search" style="width:14px;height:14px;"></i>
+                Extract Text
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-area">
+          <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+              <div class="attachment-tray" id="attachmentTray" style="display:none;"></div>
+              <textarea id="chatInput" rows="1" placeholder="Tell PDFPilot what to do..." aria-label="Chat message"></textarea>
+              <div class="chat-input-bottom-row">
+                <div class="chat-input-actions left-actions">
+                  <button class="chat-input-btn" id="attachBtn" title="Attach file">
+                    <i data-lucide="plus" style="width:20px;height:20px;"></i>
+                  </button>
+                </div>
+                <div class="chat-input-hint">PDFPilot can convert, merge, split, compress, extract text, and route commands dynamically. Max 25MB.</div>
+                <div class="chat-input-actions right-actions">
+                  <button class="chat-input-btn mic-btn" id="micBtn" title="Voice input">
+                    <i data-lucide="mic" style="width:18px;height:18px;"></i>
+                  </button>
+                  <button class="chat-send-btn bg-modern" id="sendBtn" title="Send message">
+                    <i data-lucide="corner-down-left" style="width:18px;height:18px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <input type="file" id="fileInput" style="display:none;" multiple accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== RIGHT PREVIEW PANEL ===== -->
+    <aside class="preview-panel hidden" id="previewPanel">
+      <div class="preview-inner">
+        <div class="preview-header">
+          <div class="preview-header-title">
+            <i data-lucide="file" style="width:16px;height:16px;color:var(--primary);"></i>
+            <span id="previewFileName">Preview</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button class="btn-icon" title="Expand">
+              <i data-lucide="maximize" style="width:16px;height:16px;"></i>
+            </button>
+            <button class="btn-icon" id="closePreviewBtn" title="Close preview">
+              <i data-lucide="x" style="width:16px;height:16px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-content" id="previewContent">
+          <!-- PDF.js renders here -->
+          <div class="preview-placeholder" id="previewPlaceholder">
+            <i data-lucide="file-text" style="width:64px;height:64px;opacity:0.2;margin-bottom:var(--space-md);"></i>
+            <p style="font-size:0.9rem;font-weight:500;color:var(--text-secondary);margin-bottom:var(--space-xs);">No preview available</p>
+            <p style="font-size:0.8rem;">Upload a file and run a command to see the result here.</p>
+          </div>
+          <div class="pdf-viewer" id="pdfViewer" style="display:none;"></div>
+        </div>
+
+        <div class="preview-footer">
+          <button class="btn btn-primary btn-sm" id="downloadBtn">
+            <i data-lucide="download" style="width:16px;height:16px;"></i>
+            Download
+          </button>
+          <button class="btn btn-secondary btn-sm">
+            <i data-lucide="share" style="width:16px;height:16px;"></i>
+            Share
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Drag & Drop Overlay -->
+    <div class="drag-overlay" id="dragOverlay">
+      <div>
+        <i data-lucide="upload-cloud" style="width:48px;height:48px;margin-bottom:var(--space-md);"></i>
+        <p>Drop your file here</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/files.js"></script>
+  <script src="js/voice.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

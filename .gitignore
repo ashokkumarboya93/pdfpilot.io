@@ -1,0 +1,14 @@
+.venv/
+.hf_cache/
+__pycache__/
+*.pyc
+
+logs/
+uploads/
+outputs/
+
+tmp_ocr_test.png
+tmp_rapidocr_test.png
+
+.DS_Store
+Thumbs.db

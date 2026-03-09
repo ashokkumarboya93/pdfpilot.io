@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFPilot — Pricing & Plans</title>
+  <meta name="description" content="Choose the perfect PDFPilot plan. Affordable pricing for individuals and teams — monthly, 6-month, and annual subscriptions.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="landing-page">
+
+  <!-- Sticky Navbar -->
+  <header class="landing-header">
+    <nav class="navbar">
+      <a href="index.html" class="navbar-logo">
+        <img src="assets/22.png" alt="PDFPilot">
+        <span>PDFPilot</span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="tools.html">Tools</a>
+        <a href="pricing.html" style="color:var(--primary);font-weight:600;">Pricing</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="app.html" class="btn btn-primary">Open App</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Pricing Section -->
+  <section class="pricing-hero">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header animate-fade-in-up">
+        <div class="section-label">
+          <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+          Pricing Plans
+        </div>
+        <h1 class="pricing-hero-title">Simple, <span class="text-gradient">transparent</span> pricing</h1>
+        <p class="section-description" style="max-width:600px;">
+          Unlock the full power of PDFPilot. Choose a plan that fits your workflow — no hidden fees, cancel anytime.
+        </p>
+      </div>
+
+      <!-- Billing Toggle -->
+      <div class="billing-toggle animate-fade-in-up delay-1">
+        <button class="billing-option active" id="monthlyToggle" onclick="switchBilling('monthly')">Monthly</button>
+        <button class="billing-option" id="semiToggle" onclick="switchBilling('semi')">6 Months</button>
+        <button class="billing-option" id="yearlyToggle" onclick="switchBilling('yearly')">Yearly</button>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid" id="pricingGrid">
+
+        <!-- Free Plan -->
+        <div class="pricing-card animate-fade-in-up delay-1" id="cardFree">
+          <div class="pricing-card-header">
+            <div class="pricing-icon free-icon">
+              <i data-lucide="file-text" style="width:24px;height:24px;"></i>
+            </div>
+            <h3 class="pricing-plan-name">Free</h3>
+            <p class="pricing-plan-desc">Get started with basic tools</p>
+          </div>
+          <div class="pricing-price-block">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount" id="freePrice">0</span>
+            <span class="pricing-period">/ forever</span>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              5 document conversions/day
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Basic PDF tools
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              10MB file size limit
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Community support
+            </li>
+            <li class="disabled">
+              <i data-lucide="x" style="width:16px;height:16px;"></i>
+              Voice commands
+            </li>
+            <li class="disabled">
+              <i data-lucide="x" style="width:16px;height:16px;"></i>
+              Priority processing
+            </li>
+            <li class="disabled">
+              <i data-lucide="x" style="width:16px;height:16px;"></i>
+              OCR text extraction
+            </li>
+          </ul>
+          <a href="app.html" class="btn btn-secondary pricing-cta">
+            Get Started Free
+          </a>
+        </div>
+
+        <!-- Pro Plan (Featured) -->
+        <div class="pricing-card featured animate-fade-in-up delay-2" id="cardPro">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-card-header">
+            <div class="pricing-icon pro-icon">
+              <i data-lucide="zap" style="width:24px;height:24px;"></i>
+            </div>
+            <h3 class="pricing-plan-name">Pro</h3>
+            <p class="pricing-plan-desc">For power users & professionals</p>
+          </div>
+          <div class="pricing-price-block">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount" id="proPrice">49</span>
+            <span class="pricing-period" id="proPeriod">/ month</span>
+          </div>
+          <div class="pricing-savings" id="proSavings" style="display:none;">
+            <i data-lucide="tag" style="width:14px;height:14px;"></i>
+            <span></span>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Unlimited conversions
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              All PDF tools & merge/split
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              25MB file size limit
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Voice commands
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              OCR text extraction
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Priority processing
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Email support
+            </li>
+          </ul>
+          <a href="app.html" class="btn btn-primary pricing-cta">
+            <i data-lucide="zap" style="width:16px;height:16px;"></i>
+            Start Using
+          </a>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card animate-fade-in-up delay-3" id="cardEnterprise">
+          <div class="pricing-card-header">
+            <div class="pricing-icon enterprise-icon">
+              <i data-lucide="crown" style="width:24px;height:24px;"></i>
+            </div>
+            <h3 class="pricing-plan-name">Enterprise</h3>
+            <p class="pricing-plan-desc">For teams & businesses</p>
+          </div>
+          <div class="pricing-price-block">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount" id="enterprisePrice">499</span>
+            <span class="pricing-period" id="enterprisePeriod">/ year</span>
+          </div>
+          <div class="pricing-savings" id="enterpriseSavings" style="display:none;">
+            <i data-lucide="tag" style="width:14px;height:14px;"></i>
+            <span></span>
+          </div>
+          <ul class="pricing-features">
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Everything in Pro
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              100MB file size limit
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Batch processing
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              API access
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Team collaboration
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Custom integrations
+            </li>
+            <li>
+              <i data-lucide="check" style="width:16px;height:16px;color:var(--accent-green);"></i>
+              Dedicated support 24/7
+            </li>
+          </ul>
+          <a href="app.html" class="btn btn-secondary pricing-cta">
+            Start Using
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Comparison Table -->
+  <section class="pricing-comparison">
+    <div class="container">
+      <div class="section-header animate-fade-in-up">
+        <div class="section-label">
+          <i data-lucide="table" style="width:14px;height:14px;"></i>
+          Compare Plans
+        </div>
+        <h2 class="section-title">Feature comparison</h2>
+      </div>
+
+      <div class="comparison-table-wrapper animate-fade-in-up delay-1">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Free</th>
+              <th class="highlight-col">Pro</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Document conversions</td>
+              <td>5/day</td>
+              <td class="highlight-col">Unlimited</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>Max file size</td>
+              <td>10MB</td>
+              <td class="highlight-col">25MB</td>
+              <td>100MB</td>
+            </tr>
+            <tr>
+              <td>PDF merge & split</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="check" class="table-icon-yes"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>OCR text extraction</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="check" class="table-icon-yes"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>Voice commands</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="check" class="table-icon-yes"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>Priority processing</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="check" class="table-icon-yes"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>Batch processing</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="x" class="table-icon-no"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>API access</td>
+              <td><i data-lucide="x" class="table-icon-no"></i></td>
+              <td class="highlight-col"><i data-lucide="x" class="table-icon-no"></i></td>
+              <td><i data-lucide="check" class="table-icon-yes"></i></td>
+            </tr>
+            <tr>
+              <td>Support</td>
+              <td>Community</td>
+              <td class="highlight-col">Email</td>
+              <td>Dedicated 24/7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="pricing-faq">
+    <div class="container">
+      <div class="section-header animate-fade-in-up">
+        <div class="section-label">
+          <i data-lucide="help-circle" style="width:14px;height:14px;"></i>
+          FAQ
+        </div>
+        <h2 class="section-title">Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-grid animate-fade-in-up delay-1">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I change my plan later?</span>
+            <i data-lucide="chevron-down" style="width:18px;height:18px;transition:transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! You can upgrade or downgrade your plan at any time. If you upgrade, you'll only pay the prorated difference. If you downgrade, you'll receive credit for future billing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is there a free trial?</span>
+            <i data-lucide="chevron-down" style="width:18px;height:18px;transition:transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>The Free plan is always available with no time limit. You can use it as long as you want, then upgrade when you need more powerful features.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What payment methods do you accept?</span>
+            <i data-lucide="chevron-down" style="width:18px;height:18px;transition:transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept UPI, credit/debit cards (Visa, Mastercard, RuPay), net banking, and popular wallets like Paytm and PhonePe.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I get a refund?</span>
+            <i data-lucide="chevron-down" style="width:18px;height:18px;transition:transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We offer a 7-day money-back guarantee. If you're not satisfied, contact us within 7 days of your purchase for a full refund — no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box animate-scale-in">
+        <h2 class="animate-fade-in-up delay-1">Ready to supercharge your documents?</h2>
+        <p class="animate-fade-in-up delay-2">Join thousands of users who save time with PDFPilot every day. Start free, upgrade when you're ready.</p>
+        <a href="app.html" class="btn btn-lg animate-fade-in-up delay-3">Get Started Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-copy">© 2026 PDFPilot. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Pricing data
+    const plans = {
+      monthly: { pro: 49, enterprise: 99, proLabel: '/ month', entLabel: '/ month', proSave: '', entSave: '' },
+      semi:    { pro: 299, enterprise: 549, proLabel: '/ 6 months', entLabel: '/ 6 months', proSave: 'Save ₹5/mo vs monthly!', entSave: 'Save ₹45 vs monthly!' },
+      yearly:  { pro: 499, enterprise: 899, proLabel: '/ year', entLabel: '/ year', proSave: 'Save ₹89 — best value!', entSave: 'Save ₹289 — best value!' }
+    };
+
+    function switchBilling(type) {
+      // Update toggle buttons
+      document.querySelectorAll('.billing-option').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(type === 'monthly' ? 'monthlyToggle' : type === 'semi' ? 'semiToggle' : 'yearlyToggle').classList.add('active');
+
+      const plan = plans[type];
+
+      // Update Pro card
+      const proPrice = document.getElementById('proPrice');
+      const proPeriod = document.getElementById('proPeriod');
+      const proSavings = document.getElementById('proSavings');
+      animatePrice(proPrice, plan.pro);
+      proPeriod.textContent = plan.proLabel;
+      if (plan.proSave) {
+        proSavings.style.display = 'flex';
+        proSavings.querySelector('span').textContent = plan.proSave;
+      } else {
+        proSavings.style.display = 'none';
+      }
+
+      // Update Enterprise card
+      const entPrice = document.getElementById('enterprisePrice');
+      const entPeriod = document.getElementById('enterprisePeriod');
+      const entSavings = document.getElementById('enterpriseSavings');
+      animatePrice(entPrice, plan.enterprise);
+      entPeriod.textContent = plan.entLabel;
+      if (plan.entSave) {
+        entSavings.style.display = 'flex';
+        entSavings.querySelector('span').textContent = plan.entSave;
+      } else {
+        entSavings.style.display = 'none';
+      }
+    }
+
+    function animatePrice(el, target) {
+      const start = parseInt(el.textContent);
+      const diff = target - start;
+      const duration = 400;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        el.textContent = Math.round(start + diff * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // FAQ toggle
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

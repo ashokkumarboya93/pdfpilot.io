@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFPilot — Tools</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <div class="sidebar-header-row">
+            <a href="index.html" class="sidebar-logo">
+              <img src="assets/22.png" alt="PDFPilot">
+              <span>PDFPilot</span>
+            </a>
+            <button class="btn-icon" id="sidebarToggle" title="Close sidebar">
+              <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+            </button>
+          </div>
+          <button class="sidebar-new-chat" onclick="window.location.href='app.html'">
+            <i data-lucide="plus" style="width:16px;height:16px;"></i>
+            New Chat
+          </button>
+        </div>
+
+        <div class="sidebar-menu" style="border-top:none;">
+          <a href="app.html" class="sidebar-link">
+            <i data-lucide="message-square"></i>
+            <span>Chats</span>
+          </a>
+          <a href="tools.html" class="sidebar-link active">
+            <i data-lucide="wrench"></i>
+            <span>Tools</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="folder"></i>
+            <span>Files</span>
+          </a>
+          <a href="history.html" class="sidebar-link">
+            <i data-lucide="clock"></i>
+            <span>History</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">GU</div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Guest User</div>
+              <div class="sidebar-user-email">No login required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="tools-page">
+      <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-sm);">
+        <button class="btn-icon" id="mobileToggle" title="Toggle sidebar">
+          <i data-lucide="panel-left" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <div class="tools-header">
+        <h1>Document Tools</h1>
+        <p class="text-secondary">Click any tool to open it in the chat, or use voice commands.</p>
+      </div>
+
+      <div class="tools-grid">
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon blue"><i data-lucide="repeat"></i></div>
+          <h4 class="tool-name">DOC → PDF</h4>
+          <p class="tool-desc">Convert Word, PowerPoint, and other documents to PDF format.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon green"><i data-lucide="layers"></i></div>
+          <h4 class="tool-name">Merge PDF</h4>
+          <p class="tool-desc">Combine multiple PDF files into a single document.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon yellow"><i data-lucide="scissors"></i></div>
+          <h4 class="tool-name">Split PDF</h4>
+          <p class="tool-desc">Split a PDF into individual pages or custom page ranges.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon red"><i data-lucide="minimize-2"></i></div>
+          <h4 class="tool-name">Compress PDF</h4>
+          <p class="tool-desc">Reduce PDF file size while maintaining quality.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon blue"><i data-lucide="image"></i></div>
+          <h4 class="tool-name">Image → PDF</h4>
+          <p class="tool-desc">Convert JPG, PNG, and other images to PDF format.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+
+        <a href="app.html" class="tool-card">
+          <div class="tool-icon green"><i data-lucide="file-search"></i></div>
+          <h4 class="tool-name">Extract Text</h4>
+          <p class="tool-desc">Pull text content from PDFs and images using OCR.</p>
+          <span class="tool-action">Use tool <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></span>
+        </a>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
