@@ -8,10 +8,9 @@ from pathlib import Path
 
 from PyPDF2 import PdfReader, PdfWriter
 
-logger = logging.getLogger(__name__)
+from backend.file_utils import OUTPUT_DIR
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "outputs"
-OUTPUT_DIR.mkdir(exist_ok=True)
+logger = logging.getLogger(__name__)
 
 
 def parse_page_ranges(pages_str: str, total_pages: int) -> list[int]:

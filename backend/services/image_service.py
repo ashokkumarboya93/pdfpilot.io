@@ -9,10 +9,9 @@ import uuid
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
-logger = logging.getLogger(__name__)
+from backend.file_utils import OUTPUT_DIR
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "outputs"
-OUTPUT_DIR.mkdir(exist_ok=True)
+logger = logging.getLogger(__name__)
 
 
 def pdf_to_images(input_path: str, image_format: str = "png") -> tuple[list[str], str]:

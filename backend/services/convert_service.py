@@ -16,10 +16,9 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
-logger = logging.getLogger(__name__)
+from backend.file_utils import OUTPUT_DIR
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "outputs"
-OUTPUT_DIR.mkdir(exist_ok=True)
+logger = logging.getLogger(__name__)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".webp"}
 WORD_EXTENSIONS = {".doc", ".docx"}

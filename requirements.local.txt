@@ -1,0 +1,8 @@
+-r requirements.txt
+
+# Optional local-only extras (too large for Vercel)
+numpy==1.26.4
+torch==2.4.1
+sentence-transformers==3.0.1
+pytesseract==0.3.13
+rapidocr-onnxruntime==1.2.3

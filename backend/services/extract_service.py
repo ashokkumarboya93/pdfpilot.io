@@ -7,17 +7,13 @@ import uuid
 import zipfile
 from pathlib import Path
 
-import numpy as np
 import pdfplumber
 from docx import Document
 
-from backend.file_utils import sanitize_filename
+from backend.file_utils import OUTPUT_DIR, sanitize_filename
 
 logger = logging.getLogger(__name__)
 _RAPID_OCR_ENGINE = None
-
-OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "outputs"
-OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 def extract_text(input_path: str) -> tuple[str, str]:
@@ -196,6 +192,8 @@ def _ocr_image(image: object) -> str:
         _RAPID_OCR_ENGINE = RapidOCR()
 
     engine = _RAPID_OCR_ENGINE
+    import numpy as np
+
     result, _ = engine(np.array(image))
     if not result:
         return ""

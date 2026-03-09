@@ -14,12 +14,10 @@ from reportlab.lib.colors import Color
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
+from backend.file_utils import OUTPUT_DIR
 from backend.services.split_service import parse_page_ranges
 
 logger = logging.getLogger(__name__)
-
-OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "outputs"
-OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 def rotate_pdf(input_path: str, rotation: int = 90) -> str:

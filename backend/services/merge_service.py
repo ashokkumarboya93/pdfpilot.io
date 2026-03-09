@@ -3,14 +3,15 @@ PDFPilot — Merge Service
 Merge multiple PDF files into a single document
 """
 
-import os
-import uuid
 import logging
+import uuid
+from pathlib import Path
+
 from PyPDF2 import PdfMerger
 
-logger = logging.getLogger(__name__)
+from backend.file_utils import OUTPUT_DIR
 
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "outputs")
+logger = logging.getLogger(__name__)
 
 
 def merge_pdfs(file_paths: list[str]) -> str:
@@ -23,21 +24,20 @@ def merge_pdfs(file_paths: list[str]) -> str:
     Returns:
         Path to the merged PDF file
     """
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
     output_name = f"merged_{uuid.uuid4().hex[:8]}.pdf"
-    output_path = os.path.join(OUTPUT_DIR, output_name)
+    output_path = OUTPUT_DIR / output_name
 
     logger.info(f"Merging {len(file_paths)} PDFs")
 
     merger = PdfMerger()
     try:
         for path in file_paths:
-            if not os.path.exists(path):
+            if not Path(path).exists():
                 raise FileNotFoundError(f"File not found: {path}")
             merger.append(path)
         
-        merger.write(output_path)
+        merger.write(str(output_path))
         logger.info(f"Merge complete: {output_path}")
-        return output_path
+        return str(output_path)
     finally:
         merger.close()
